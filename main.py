@@ -19,11 +19,9 @@ article_score = soup.find_all(name='span', class_="score")
 for s in article_score:
     article_s.append(int(s.getText().strip(" points")))
 
-max_index = 0
-highscore = 0
+max_index = max(article_s)
 
-for i in range(len(article_s)):
-    if article_s[i] >= highscore:
-        highscore = article_s[i]
-        max_index = i
-print(f"{article_t[max_index]} at {article_l[max_index]} with {article_s[max_index]} points is the winner")
+index_max = article_s.index(max_index)
+
+
+print(f"{article_t[index_max]} at {article_l[index_max]} with {article_s[index_max]} points is the winner")
